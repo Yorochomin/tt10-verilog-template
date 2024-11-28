@@ -49,7 +49,7 @@ pinout:
   uio[4]: "0"
   uio[5]: "0"
   uio[6]: "1"
-  uio[7]: "0"
+  uio[7]: ""
 
 
 # Do not change!

@@ -30,7 +30,7 @@ module tt_um_example (
 
     wire _unused = &{ena, clk, rst_n, 1'b0};
 
-    assign Q = A & B;
-    assign COUT = A ^ B;
+    assign Q = (A & B);
+    assign COUT = (A ^ B);
 
 endmodule

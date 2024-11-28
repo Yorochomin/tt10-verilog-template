@@ -60,10 +60,12 @@ pinout:
   B[1]: "0"
 
   #Q
-  Q[0]: "0"
+  Q[0]: ""
+  Q[1]: ""
 
   #COUT
-  COUT[0]: "0"
+  COUT[0]: ""
+  COUT[1]: ""
 
 # Do not change!
 yaml_version: 6

@@ -14,8 +14,8 @@ module tt_um_example (
     input  wire       ena,      // always 1 when the design is powered, so you can ignore it
     input  wire       clk,      // clock
     input  wire       rst_n     // reset_n - low to reset
-    input A, B;
-    output Q, COUT;
+    input wire [2:0] A, B;
+    output wire [2:0] Q, COUT;
 );
 
   // All output pins must be assigned. If not used, assign to 0.

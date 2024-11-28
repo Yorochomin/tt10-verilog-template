@@ -51,5 +51,19 @@ pinout:
   uio[6]: "0"
   uio[7]: "0"
 
+  #A
+  A[0]: "1"
+  A[1]: "0"
+
+  #B
+  B[0]: "0"
+  B[1]: "0"
+
+  #Q
+  Q[0]: ""
+
+  #COUT
+  COUT[0]: ""
+
 # Do not change!
 yaml_version: 6

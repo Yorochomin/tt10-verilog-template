@@ -15,7 +15,7 @@ module tt_um_example (
     input  wire       clk,      // clock
     input  wire       rst_n     // reset_n - low to reset
     input wire [2:0] A, B;
-    output wire [2:0] Q, COUT;
+    output wire [0:0] Q, COUT;
 );
 
   // All output pins must be assigned. If not used, assign to 0.

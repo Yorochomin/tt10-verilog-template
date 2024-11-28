@@ -20,7 +20,7 @@ project:
     - "project.v"
 
 # The pinout of your project. Leave unused pins blank. DO NOT delete or add any pins.
-pinout: 1
+pinout:
   # Inputs
   ui[0]: "1"
   ui[1]: "0"
@@ -29,7 +29,7 @@ pinout: 1
   ui[4]: "0"
   ui[5]: "0"
   ui[6]: "0"
-  ui[7]: "0"
+  ui[7]: "1"
 
   # Outputs
   uo[0]: ""
@@ -48,7 +48,7 @@ pinout: 1
   uio[3]: "0"
   uio[4]: "0"
   uio[5]: "0"
-  uio[6]: "0"
+  uio[6]: "1"
   uio[7]: "0"
 
   #A
@@ -60,10 +60,10 @@ pinout: 1
   B[1]: "0"
 
   #Q
-  Q[0]: ""
+  Q[0]: "0"
 
   #COUT
-  COUT[0]: ""
+  COUT[0]: "0"
 
 # Do not change!
 yaml_version: 6

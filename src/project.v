@@ -1,31 +1,57 @@
-/*
- * Copyright (c) 2024 Your Name
- * SPDX-License-Identifier: Apache-2.0
- */
+module fulladd(x, y, cout, sum);
+module hankasan (ck, res, a, b);
+input ck;
+input [3:0] a;
+output [3:0] b;
+reg [3:0] q0, q1, q2, q3;
+input [3:0] switch;
+wire[3:0] w;
+wire laod0, load1, load2, load3;
 
-`default_nettype none
-
-module tt_um_example (
-    input  wire [7:0] ui_in,// Dedicated inputs
-    output wire [7:0] uo_out,   // Dedicated outputs
-    input  wire [7:0] uio_in,   // IOs: Input path
-    output wire [7:0] uio_out,  // IOs: Output path
-    output wire [7:0] uio_oe,   // IOs: Enable path (active high: 0=input, 1=output)
-    input  wire       ena,      // always 1 when the design is powered, so you can ignore it
-    input  wire       clk,      // clock
-    input  wire       rst_n     // reset_n - low to reset
+function select(
+input [3:0] din1,
+input [3:0] din2,
+input [3:0] din3,
+input [3:0] din4, 
+input [1:0] sel
 );
 
-  // All output pins must be assigned. If not used, assign to 0.
-   //assign uo_out  = ui_in + uio_in;  // Example: ou_out is the sum of ui_in and uio_in
-   assign uio_out = 0;
-   //assign uio_oe  = 0;
+case(sel)
+2'h0: select = din1;
+2'h1: select = din2;
+2'h2: select = din3;
+2'h3: select = din4;
+default: select = 4'bxxxx;
+endcase
 
-   //List all unused inputs to prevent warnings
+endfunction
 
-    assign uo_out = (ui_in ^ uio_in);
-    assign uio_oe = (ui_in & uio_in);
+always @(posedge ck)begin
+    if(load==1)begin
+        q0<=q0;
+        q1<=q1;
+        q2<=q2;
+        q3<=q3;
+    end else begin
+        q0<=w;
+        q1<=w;
+        q2<=w;
+        q3<=w;
+    end
+end
 
-    wire _unused = &{ena, clk, rst_n, 1'b0};
-    
+assign x = select(q0, q1, switch, 1'b0, sel);
+
+input [3:0] x;
+input [3:0] y;
+output [3:0] sum;
+wire [3:0] cout;
+fulladd add0(x[0], y[0], 1'b0, cout[0], sum[0]);
+fulladd add1(x[1], y[1], cout[0], cout[1], sum[1]);
+fulladd add2(x[2], y[2], cout[1], cout[2], sum[2]);
+fulladd add3(x[3], y[3], cout[2], cout[3], sum[3]);
+
+assign q0, q1, q2, q3 = sum; 
+
+endmodule
 endmodule
